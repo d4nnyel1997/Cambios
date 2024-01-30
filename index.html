@@ -7,10 +7,110 @@
     <title>Document</title>
 </head>
 <body>
-  <h1>TUTULO PRINCIPAL</h1>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clase 3</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <h1>hola mundo</h1>
 
+    <h1>Titulo ejemplos <span class="badge bg-warning">Nuevo</span> </h1>
+    <button type="button" class="btn bg-primary position-relative">
+        notificaciones <span id="contador" class="position-absolute top-0 start-100
+        translate-middle round-pill badge bg-danger">98</span>
+    </button>
+    
+    <button id="subir" class="btn bg-success">subir</button>
+    <button id="bajar" class="btn bg-danger">bajar</button>
+    
+    <div class="card" style="width: 18rem;">
+        <img src="" alt="aca deberia haber una imagen" class="card img-top">
+        <div class="card-body">
+            <h3 class="card-title">titulo de la tarjeta</h3>
+            <p class="card-text">Deescripcion de la tarjeta</p>
+            <a href="" class="btn btn-success">link a alguna parte</a>
+            
+            <!-- Nuevo botón para agregar a productos -->
+            <button id="agregarProducto" class="btn btn-primary">Agregar a productos</button>
+        </div>
+    </div>
+
+    <!-- Botón del carrito de compras -->
+    <button id="carrito" class="btn btn-info">
+        <img src="ruta_de_la_imagen_del_carrito.jpg" alt="Carrito de compras" style="width: 20px; height: 20px; margin-right: 5px;">
+        Carrito
+    </button>
+
+    <script>
+        const btn_subir = document.getElementById("subir");
+        const btn_bajar = document.getElementById("bajar");
+        const span = document.getElementById("contador");
+        const btn_agregarProducto = document.getElementById("agregarProducto");
+        const btn_carrito = document.getElementById("carrito");
+
+        let contador = parseInt(span.innerHTML);
+        let productosEnCarrito = 0;
+
+        btn_subir.addEventListener("click", () => {
+            if (contador > 99) {
+                span.innerHTML = "99+";
+            } else {
+                span.innerHTML = contador;
+            }
+            contador++;
+        });
+
+        btn_bajar.addEventListener("click", () => {
+            if (contador > 0) {
+                if (contador > 99) {
+                    span.innerHTML = "99+";
+                } else {
+                    span.innerHTML = contador;
+                }
+                contador--;
+            }
+        });
+
+        btn_agregarProducto.addEventListener("click", () => {
+            if (contador > 99) {
+                span.innerHTML = "99+";
+            } else {
+                span.innerHTML = contador;
+            }
+            contador++;
+
+            // Agregar producto al carrito
+            productosEnCarrito++;
+            actualizarCarrito();
+        });
+
+        btn_carrito.addEventListener("click", () => {
+            // Aquí puedes realizar acciones adicionales cuando se hace clic en el carrito
+            alert("Productos en el carrito: " + productosEnCarrito);
+        });
+
+        function actualizarCarrito() {
+            // Actualizar el número de productos en el carrito
+            btn_carrito.innerHTML = `
+                <img src="ruta_de_la_imagen_del_carrito.jpg" alt="Carrito de compras" style="width: 20px; height: 20px; margin-right: 5px;">
+                Carrito (${productosEnCarrito})
+            `;
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  <h1>TUTULO PRINCIPAL</h1>
   <p>este <s>es</s> un parrafo y puse una <a href="google.com">referencia</a> que me lleva a <a href="google.com">google</a></p>
   <h2>Titulo numero 2</h2>
+  <p>
+    <img src="./img/imagen.jpg.jpg" alt="imagen">
+  </p>
   <h3>Titulo numero 3</h3>
 </body>
 </html>
